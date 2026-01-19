@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Afiya ist eine Community für Frauen in der Deutschschweiz: kuratierte Events, echte Gespräche und Verbindung auf Augenhöhe." />
+
+  <link rel="icon" href="/favicon.png" />
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (for a fast, stunning build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          colors: {
+            ink: "#0b0b0f",
+            stone: "#f6f3f2",
+            roseink: "#c08a7a",
+            rosemist: "#f0d7cf"
+          },
+          boxShadow: {
+            soft: "0 12px 30px rgba(11,11,15,.08)",
+            lift: "0 18px 50px rgba(11,11,15,.12)"
+          },
+          borderRadius: {
+            xl2: "22px"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fancybox for Gallery -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+  <title>Afiya — Events & Community</title>
+
+  <style>
+    :root { color-scheme: light; }
+    html { scroll-behavior: smooth; }
+    .glass {
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(11,11,15,.08);
+    }
+    .grain:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      opacity:.35; pointer-events:none; mix-blend-mode:multiply;
+    }
+    .focus-ring:focus-visible {
+      outline: 3px solid rgba(192,138,122,.55);
+      outline-offset: 3px;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-ink font-sans antialiased">
+
+  <!-- Top Announcement -->
+  <div class="relative bg-ink text-white">
+    <div class="mx-auto max-w-6xl px-4 py-3 text-sm flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="opacity-90">Afiya ist ein Raum für echte Verbindung — kuratiert, entspannt, auf Augenhöhe.</p>
+      <a class="focus-ring inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 hover:bg-white/15 transition"
+         href="https://chat.whatsapp.com/LEN0tI0IkzkL6HXBFnaaAi?mode=ems_wa_c" target="_blank" rel="noopener">
+        <span>WhatsApp-Gruppe</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sticky Nav -->
+  <header class="sticky top-0 z-50">
+    <nav class="glass">
+      <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+        <a href="#top" class="focus-ring inline-flex items-baseline gap-1">
+          <span class="text-xl font-extrabold tracking-tight">Afiya</span>
+          <span class="text-roseink text-xl font-extrabold">.</span>
+        </a>
+
+        <button id="menuBtn" class="focus-ring sm:hidden inline-flex items-center justify-center rounded-full px-4 py-2 border border-black/10 hover:border-black/20 transition">
+          Menü
+        </button>
+
+        <div class="hidden sm:flex items-center gap-7 text-sm font-semibold">
+          <a class="hover:text-roseink transition" href="#events">Events</a>
+          <a class="hover:text-roseink transition" href="#past">Rückblicke</a>
+          <a class="hover:text-roseink transition" href="#about">Über</a>
+          <a class="hover:text-roseink transition" href="#offers">Angebote</a>
+          <a class="hover:text-roseink transition" href="#faq">FAQ</a>
+
+          <a class="focus-ring inline-flex items-center justify-center rounded-full bg-ink text-white px-5 py-2.5 shadow-soft hover:shadow-lift transition"
+             href="#events">
+            Tickets ansehen
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="sm:hidden hidden border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-3 text-sm font-semibold">
+          <a class="focus-ring py-2" href="#events">Events</a>
+          <a class="focus-ring py-2" href="#past">Rückblicke</a>
+          <a class="focus-ring py-2" href="#about">Über</a>
+          <a class="focus-ring py-2" href="#offers">Angebote</a>
+          <a class="focus-ring py-2" href="#faq">FAQ</a>
+          <a class="focus-ring inline-flex items-center justify-center rounded-full bg-ink text-white px-5 py-3 shadow-soft hover:shadow-lift transition"
+             href="#events">
+            Tickets ansehen
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="relative overflow-hidden">
+    <section class="relative">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-rosemist blur-3xl opacity-70"></div>
+        <div class="absolute -bottom-40 -left-40 h-[520px] w-[520px] rounded-full bg-rosemist blur-3xl opacity-50"></div>
+      </div>
+
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <!-- Copy -->
+          <div>
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Willkommen</p>
+            <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.02]">
+              Ein Raum für dich —
+              <span class="text-roseink">für echte Verbindung.</span>
+            </h1>
+            <p class="mt-5 text-lg text-black/70 leading-relaxed">
+              Afiya ist eine Community für Frauen in der Deutschschweiz, die offen ist für inspirierende Gespräche,
+              neue Impulse und gemeinsame Erlebnisse. Lerne neue Menschen kennen, tausche dich aus und geniesse
+              Momente, die im Alltag oft fehlen.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#events" class="focus-ring inline-flex items-center justify-center rounded-full bg-ink text-white px-6 py-3.5 font-semibold shadow-soft hover:shadow-lift transition">
+                Nächstes Event entdecken
+              </a>
+              <a href="https://chat.whatsapp.com/LEN0tI0IkzkL6HXBFnaaAi?mode=ems_wa_c"
+                 target="_blank" rel="noopener"
+                 class="focus-ring inline-flex items-center justify-center rounded-full border border-black/15 px-6 py-3.5 font-semibold hover:border-black/25 transition">
+                Community beitreten
+              </a>
+            </div>
+
+            <div class="mt-10 grid grid-cols-3 gap-3">
+              <div class="rounded-xl border border-black/10 bg-white px-4 py-3">
+                <p class="text-xs text-black/55 font-semibold">Atmosphäre</p>
+                <p class="mt-1 font-bold">klein & kuratiert</p>
+              </div>
+              <div class="rounded-xl border border-black/10 bg-white px-4 py-3">
+                <p class="text-xs text-black/55 font-semibold">Vibe</p>
+                <p class="mt-1 font-bold">classy & warm</p>
+              </div>
+              <div class="rounded-xl border border-black/10 bg-white px-4 py-3">
+                <p class="text-xs text-black/55 font-semibold">Sprache</p>
+                <p class="mt-1 font-bold">Deutsch</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual -->
+          <div class="relative grain">
+            <div class="rounded-xl2 shadow-lift overflow-hidden border border-black/10 bg-white">
+              <div class="aspect-[4/3] w-full overflow-hidden">
+                <!-- Replace with your best hero image -->
+                <img src="images/afiya_hero.jpeg" alt="Afiya Event Impression" class="h-full w-full object-cover" loading="eager">
+              </div>
+              <div class="p-6">
+                <p class="text-sm font-bold">Afiya — Räume für echte Verbindung.</p>
+                <p class="mt-2 text-sm text-black/65">
+                  Kleine Runden, natürliche Gespräche, neue Begegnungen — ohne Druck, ohne Erwartung.
+                </p>
+
+                <div class="mt-4 flex items-center justify-between gap-3">
+                  <a href="#past" class="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-roseink hover:opacity-80 transition">
+                    Rückblicke ansehen <span aria-hidden="true">→</span>
+                  </a>
+                  <span class="text-xs text-black/45 font-semibold">Deutschschweiz</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pointer-events-none absolute -bottom-6 -left-6 hidden sm:block">
+              <div class="glass rounded-xl2 px-4 py-3 shadow-soft">
+                <p class="text-xs font-bold tracking-wide uppercase text-black/55">Neu</p>
+                <p class="mt-1 text-sm font-semibold">Tickets via Stripe</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="bg-stone">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div>
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Kommende Events</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Sichere dir deinen Platz.</h2>
+            <p class="mt-3 text-lg text-black/70 leading-relaxed max-w-2xl">
+              Kuratierte Treffen wie Brunches, Dinner & Gesprächsrunden — damit Begegnungen sich leicht anfühlen und trotzdem tief gehen dürfen.
+            </p>
+          </div>
+          <a href="https://chat.whatsapp.com/LEN0tI0IkzkL6HXBFnaaAi?mode=ems_wa_c"
+             target="_blank" rel="noopener"
+             class="focus-ring inline-flex items-center justify-center rounded-full border border-black/15 px-6 py-3 font-semibold hover:border-black/25 transition bg-white">
+            Updates via WhatsApp
+          </a>
+        </div>
+
+        <!-- Event Cards -->
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+          <!-- EVENT 1 -->
+          <article class="rounded-xl2 border border-black/10 bg-white shadow-soft hover:shadow-lift transition overflow-hidden">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/event.jpg" alt="Afiya Brunch" class="h-full w-full object-cover" loading="lazy">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-lg font-extrabold tracking-tight">Afiya Brunch</h3>
+                <span class="text-xs font-bold rounded-full bg-rosemist px-3 py-1">Kommend</span>
+              </div>
+              <p class="mt-2 text-sm text-black/65">Zürich · Sonntag · 11:00</p>
+              <p class="mt-3 text-sm text-black/70 leading-relaxed">
+                Ein entspannter Start in den Tag — neue Begegnungen, gute Gespräche und ein Tisch, an dem du willkommen bist.
+              </p>
+
+              <div class="mt-5 flex items-center justify-between">
+                <p class="text-sm font-bold">Tickets</p>
+                <p class="text-sm text-black/60">via Stripe</p>
+              </div>
+
+              <!-- Replace href with your Stripe Payment Link -->
+              <a href="https://buy.stripe.com/REPLACE_ME_1" target="_blank" rel="noopener"
+                 class="focus-ring mt-4 inline-flex w-full items-center justify-center rounded-full bg-ink text-white px-5 py-3 font-semibold shadow-soft hover:shadow-lift transition">
+                Tickets kaufen
+              </a>
+            </div>
+          </article>
+
+          <!-- EVENT 2 -->
+          <article class="rounded-xl2 border border-black/10 bg-white shadow-soft hover:shadow-lift transition overflow-hidden">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/women.jpg" alt="Dinner & Talk" class="h-full w-full object-cover" loading="lazy">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-lg font-extrabold tracking-tight">Dinner &amp; Talk</h3>
+                <span class="text-xs font-bold rounded-full bg-rosemist px-3 py-1">Kommend</span>
+              </div>
+              <p class="mt-2 text-sm text-black/65">Winterthur · Freitag · 19:00</p>
+              <p class="mt-3 text-sm text-black/70 leading-relaxed">
+                Ein Abendessen mit Tiefe: Themen, die uns bewegen — ohne Druck, ohne Erwartung.
+              </p>
+
+              <div class="mt-5 flex items-center justify-between">
+                <p class="text-sm font-bold">Tickets</p>
+                <p class="text-sm text-black/60">via Stripe</p>
+              </div>
+
+              <a href="https://buy.stripe.com/REPLACE_ME_2" target="_blank" rel="noopener"
+                 class="focus-ring mt-4 inline-flex w-full items-center justify-center rounded-full bg-ink text-white px-5 py-3 font-semibold shadow-soft hover:shadow-lift transition">
+                Tickets kaufen
+              </a>
+            </div>
+          </article>
+
+          <!-- EVENT 3 -->
+          <article class="rounded-xl2 border border-black/10 bg-white shadow-soft hover:shadow-lift transition overflow-hidden">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/ideas.jpg" alt="Community Night" class="h-full w-full object-cover" loading="lazy">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-lg font-extrabold tracking-tight">Community Night</h3>
+                <span class="text-xs font-bold rounded-full bg-rosemist px-3 py-1">Kommend</span>
+              </div>
+              <p class="mt-2 text-sm text-black/65">Baden · Donnerstag · 18:30</p>
+              <p class="mt-3 text-sm text-black/70 leading-relaxed">
+                Locker, warm, authentisch — ein Abend, an dem Gespräche ganz natürlich entstehen.
+              </p>
+
+              <div class="mt-5 flex items-center justify-between">
+                <p class="text-sm font-bold">Tickets</p>
+                <p class="text-sm text-black/60">via Stripe</p>
+              </div>
+
+              <a href="https://buy.stripe.com/REPLACE_ME_3" target="_blank" rel="noopener"
+                 class="focus-ring mt-4 inline-flex w-full items-center justify-center rounded-full bg-ink text-white px-5 py-3 font-semibold shadow-soft hover:shadow-lift transition">
+                Tickets kaufen
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Past Events Gallery -->
+    <section id="past" class="bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Vergangene Events</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Rückblicke, die bleiben.</h2>
+            <p class="mt-3 text-lg text-black/70 leading-relaxed">
+              Ein kleiner Einblick in die Stimmung unserer Treffen: offen, respektvoll, entspannt — und voller schöner Momente.
+            </p>
+
+            <div class="mt-7 rounded-xl2 border border-black/10 bg-stone p-6">
+              <p class="font-extrabold tracking-tight">Du willst beim nächsten Mal dabei sein?</p>
+              <p class="mt-2 text-sm text-black/65">
+                In der WhatsApp-Gruppe teilen wir neue Termine & freie Plätze zuerst.
+              </p>
+              <a class="focus-ring mt-4 inline-flex items-center justify-center rounded-full bg-ink text-white px-6 py-3 font-semibold shadow-soft hover:shadow-lift transition"
+                 href="https://chat.whatsapp.com/LEN0tI0IkzkL6HXBFnaaAi?mode=ems_wa_c" target="_blank" rel="noopener">
+                Community beitreten
+              </a>
+            </div>
+          </div>
+
+          <!-- Gallery Grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Replace these images with real past event photos -->
+            <a class="block overflow-hidden rounded-xl2 border border-black/10 shadow-soft hover:shadow-lift transition"
+               data-fancybox="gallery"
+               data-caption="Vision Board Evening — Zürich"
+               href="images/past1.jpg">
+              <img src="images/past1.jpg" alt="Vergangenes Event 1" class="h-48 w-full object-cover" loading="lazy">
+            </a>
+
+            <a class="block overflow-hidden rounded-xl2 border border-black/10 shadow-soft hover:shadow-lift transition"
+               data-fancybox="gallery"
+               data-caption="Dinner & Talk — Winterthur"
+               href="images/past2.jpg">
+              <img src="images/past2.jpg" alt="Vergangenes Event 2" class="h-48 w-full object-cover" loading="lazy">
+            </a>
+
+            <a class="block overflow-hidden rounded-xl2 border border-black/10 shadow-soft hover:shadow-lift transition"
+               data-fancybox="gallery"
+               data-caption="Brunch — Zürich"
+               href="images/past3.jpg">
+              <img src="images/past3.jpg" alt="Vergangenes Event 3" class="h-48 w-full object-cover" loading="lazy">
+            </a>
+
+            <a class="block overflow-hidden rounded-xl2 border border-black/10 shadow-soft hover:shadow-lift transition"
+               data-fancybox="gallery"
+               data-caption="Community Night — Baden"
+               href="images/past4.jpg">
+              <img src="images/past4.jpg" alt="Vergangenes Event 4" class="h-48 w-full object-cover" loading="lazy">
+            </a>
+
+            <a class="col-span-2 block overflow-hidden rounded-xl2 border border-black/10 shadow-soft hover:shadow-lift transition"
+               data-fancybox="gallery"
+               data-caption="Afiya Moments"
+               href="images/past5.jpg">
+              <img src="images/past5.jpg" alt="Vergangenes Event 5" class="h-56 w-full object-cover" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="bg-stone">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="rounded-xl2 border border-black/10 bg-white shadow-soft overflow-hidden">
+            <div class="aspect-[16/11] overflow-hidden">
+              <img src="images/mission.png" alt="Mission" class="h-full w-full object-cover" loading="lazy">
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Unsere Mission</p>
+              <h2 class="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight">Räume für echte Verbindung.</h2>
+              <p class="mt-3 text-black/70 leading-relaxed">
+                Afiya wurde gegründet, um Frauen einen Ort zu bieten, an dem Austausch respektvoll, entspannt und bereichernd stattfindet.
+                Unsere kleinen Treffen schaffen Platz für Gespräche, bei denen du neue Menschen unkompliziert kennenlernst — offen, ehrlich und auf Augenhöhe.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Unsere Werte</p>
+            <h3 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Classy. Warm. Echt.</h3>
+
+            <div class="mt-8 grid sm:grid-cols-2 gap-4">
+              <div class="rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+                <p class="font-extrabold tracking-tight">Erlebnisse</p>
+                <p class="mt-2 text-sm text-black/65">
+                  Ausgewählte Treffen wie Brunches oder gemeinsame Abende, in denen du dich in angenehmer Atmosphäre austauschen kannst.
+                </p>
+              </div>
+
+              <div class="rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+                <p class="font-extrabold tracking-tight">Zugehörigkeit</p>
+                <p class="mt-2 text-sm text-black/65">
+                  Afiya bringt Frauen zusammen, die offen für Neues sind und echte Verbindungen suchen — authentisch und ungezwungen.
+                </p>
+              </div>
+
+              <div class="rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+                <p class="font-extrabold tracking-tight">Vertrauen</p>
+                <p class="mt-2 text-sm text-black/65">
+                  Treffen bewusst klein, damit jede Stimme Gehör findet. Du bringst dich so ein, wie es sich für dich stimmig anfühlt.
+                </p>
+              </div>
+
+              <div class="rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+                <p class="font-extrabold tracking-tight">Authentizität</p>
+                <p class="mt-2 text-sm text-black/65">
+                  Bei Afiya darfst du ganz du selbst sein. Deutsch als gemeinsame Sprache schafft Nähe und eine entspannte Gesprächsatmosphäre.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#events" class="focus-ring inline-flex items-center justify-center rounded-full bg-ink text-white px-6 py-3.5 font-semibold shadow-soft hover:shadow-lift transition">
+                Events ansehen
+              </a>
+              <a href="contact.html" class="focus-ring inline-flex items-center justify-center rounded-full border border-black/15 px-6 py-3.5 font-semibold hover:border-black/25 transition bg-white">
+                Kontakt
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why / For whom -->
+        <div class="mt-14 grid lg:grid-cols-2 gap-6">
+          <div class="rounded-xl2 border border-black/10 bg-white p-7 shadow-soft">
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Warum Afiya?</p>
+            <h4 class="mt-3 text-2xl font-extrabold tracking-tight">Weil echte Nähe selten ist.</h4>
+            <p class="mt-3 text-black/70 leading-relaxed">
+              Viele Frauen wünschen sich persönliche Begegnungen jenseits grosser, anonymer Gruppen.
+              Afiya setzt auf kleine, kuratierte Treffen, bei denen du schnell und natürlich ins Gespräch kommst.
+            </p>
+          </div>
+
+          <div class="rounded-xl2 border border-black/10 bg-white p-7 shadow-soft">
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Für wen ist Afiya?</p>
+            <h4 class="mt-3 text-2xl font-extrabold tracking-tight">Für deutschsprachige Frauen in der Schweiz.</h4>
+            <ul class="mt-4 space-y-2 text-black/70">
+              <li>• neue Kontakte im Alltag aufbauen möchten</li>
+              <li>• Gespräche in kleiner Runde bevorzugen</li>
+              <li>• Interesse an Brunch, Austauschformaten & gemeinsamen Aktivitäten haben</li>
+              <li>• unkomplizierte Begegnungen suchen</li>
+            </ul>
+            <p class="mt-4 text-sm font-semibold text-black/60">Unsere Empfehlung: Teilnahme ab etwa 25 Jahren.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers -->
+    <section id="offers" class="bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">Unsere Angebote</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Bei Afiya stehst du im Mittelpunkt.</h2>
+            <p class="mt-3 text-lg text-black/70 leading-relaxed max-w-2xl">
+              Wir organisieren Events, bei denen Austausch und Wohlfühlen im Vordergrund stehen. Unser aktuelles Angebot umfasst:
+            </p>
+          </div>
+          <a href="contact.html" class="focus-ring inline-flex items-center justify-center rounded-full bg-ink text-white px-6 py-3.5 font-semibold shadow-soft hover:shadow-lift transition">
+            Kontaktiere uns
+          </a>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="rounded-xl2 border border-black/10 bg-stone p-6">
+            <p class="font-extrabold tracking-tight">Community-Treffen</p>
+            <p class="mt-2 text-sm text-black/70">Vom Brunch bis zum Abendessen — lerne neue Menschen in entspannter Atmosphäre kennen.</p>
+          </div>
+          <div class="rounded-xl2 border border-black/10 bg-stone p-6">
+            <p class="font-extrabold tracking-tight">Austauschrunden</p>
+            <p class="mt-2 text-sm text-black/70">Offene Gespräche zu Themen, die uns beschäftigen — ohne Druck, ohne Erwartung.</p>
+          </div>
+          <div class="rounded-xl2 border border-black/10 bg-stone p-6">
+            <p class="font-extrabold tracking-tight">Erlebnis-Treffen</p>
+            <p class="mt-2 text-sm text-black/70">Kreative, sportliche oder kulturelle Aktivitäten, die Spass machen und Beziehungen vertiefen.</p>
+          </div>
+          <div class="rounded-xl2 border border-black/10 bg-stone p-6">
+            <p class="font-extrabold tracking-tight">Mitgliedschaft</p>
+            <p class="mt-2 text-sm text-black/70">
+              Zugang zu Community Events, Gesprächsrunden, Themenabenden & Erlebnis-Formaten — und vor allem Zugehörigkeit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-stone">
+      <div class="mx-auto max-w-4xl px-4 py-14 sm:py-20">
+        <div class="text-center">
+          <p class="text-xs font-bold tracking-[.18em] uppercase text-black/60">FAQ</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Häufig gestellte Fragen</h2>
+        </div>
+
+        <div class="mt-10 space-y-4">
+          <details class="group rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-extrabold tracking-tight">
+              Kann ich alleine kommen?
+              <span class="text-roseink transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-black/70 leading-relaxed">
+              Ja — viele Frauen kommen alleine. Genau dafür ist Afiya da: dass du dich schnell verbunden fühlst und nicht “allein” bleibst.
+            </p>
+          </details>
+
+          <details class="group rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-extrabold tracking-tight">
+              Wie alt sind die Teilnehmerinnen?
+              <span class="text-roseink transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-black/70 leading-relaxed">
+              Die meisten Teilnehmerinnen sind zwischen 25 und 40 Jahre alt. Unsere Empfehlung ist eine Teilnahme ab ca. 25 Jahren.
+            </p>
+          </details>
+
+          <details class="group rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-extrabold tracking-tight">
+              Brauche ich besondere soziale Fähigkeiten?
+              <span class="text-roseink transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-black/70 leading-relaxed">
+              Nein. Ob ruhig, lebhaft, zurückhaltend oder spontan — wichtig sind Offenheit und gegenseitiger Respekt.
+            </p>
+          </details>
+
+          <details class="group rounded-xl2 border border-black/10 bg-white p-6 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-extrabold tracking-tight">
+              In welcher Sprache finden die Events statt?
+              <span class="text-roseink transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-black/70 leading-relaxed">
+              Unsere Treffen sind deutschsprachig. Deutsch erleichtert die Kommunikation, schafft Nähe und sorgt für eine entspannte Gesprächsatmosphäre.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-white">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <p class="text-xl font-extrabold tracking-tight">Afiya<span class="text-roseink">.</span></p>
+          <p class="mt-3 text-white/75 leading-relaxed max-w-xl">
+            Afiya ist eine Community, die Frauen zusammenbringt. Hier entstehen Verbindungen, die bleiben — getragen von Offenheit,
+            Inspiration und dem Wunsch, gemeinsam mehr zu erleben.
+          </p>
+          <a class="focus-ring mt-5 inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 font-semibold hover:bg-white/15 transition"
+             href="https://chat.whatsapp.com/LEN0tI0IkzkL6HXBFnaaAi?mode=ems_wa_c" target="_blank" rel="noopener">
+            Community beitreten
+          </a>
+        </div>
+
+        <div>
+          <p class="font-extrabold">Navigation</p>
+          <ul class="mt-3 space-y-2 text-white/75 text-sm">
+            <li><a class="hover:text-white transition" href="#events">Events</a></li>
+            <li><a class="hover:text-white transition" href="#past">Rückblicke</a></li>
+            <li><a class="hover:text-white transition" href="#about">Über Afiya</a></li>
+            <li><a class="hover:text-white transition" href="#offers">Angebote</a></li>
+            <li><a class="hover:text-white transition" href="#faq">FAQ</a></li>
+            <li><a class="hover:text-white transition" href="contact.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-extrabold">Rechtliches</p>
+          <ul class="mt-3 space-y-2 text-white/75 text-sm">
+            <li><a class="hover:text-white transition" href="#">AGBs</a></li>
+            <li><a class="hover:text-white transition" href="#">DSGVO</a></li>
+            <li><a class="hover:text-white transition" href="#">Impressum</a></li>
+          </ul>
+
+          <div class="mt-7">
+            <p class="font-extrabold">Social</p>
+            <a class="mt-3 inline-flex items-center gap-2 text-white/75 hover:text-white transition text-sm" href="#" target="_blank" rel="noopener">
+              Instagram <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-white/10 pt-6 text-sm text-white/60 flex flex-col sm:flex-row gap-2 justify-between">
+        <p>© <span id="year"></span> afiya.ch — Alle Rechte vorbehalten.</p>
+        <p>Customized by <a class="hover:text-white transition" href="https://seitigo.ch" target="_blank" rel="noopener">Seitigo.ch</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
